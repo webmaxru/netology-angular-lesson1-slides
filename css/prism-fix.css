@@ -1,0 +1,33 @@
+.token.lf::before,
+.token.crlf::before,
+.token.cr::before,
+.token.space::before,
+.token.tab::before {
+  display: none;
+}
+
+.show-invisible .token.space::before,
+.show-invisible .token.tab::before {
+  display: initial;
+}
+
+pre[class*="language-"] {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  margin: 0 0 1em -3.2em;
+}
+
+pre.line-numbers {
+  padding-left: 3.2em;
+}
+
+.slide pre code {
+    display: initial;
+    margin-left: 0;
+    padding: 0;
+    line-height: inherit;
+    white-space: inherit;;
+    -moz-tab-size: 2;
+    -o-tab-size: 2;
+    tab-size: 2;
+}
