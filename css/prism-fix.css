@@ -22,12 +22,20 @@ pre.line-numbers {
 }
 
 .slide pre code {
-    display: initial;
-    margin-left: 0;
-    padding: 0;
-    line-height: inherit;
-    white-space: inherit;;
-    -moz-tab-size: 2;
-    -o-tab-size: 2;
-    tab-size: 2;
+  display: initial;
+  margin-left: 0;
+  padding: 0;
+  line-height: inherit;
+  white-space: inherit;;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
+}
+
+.slide pre mark {
+  z-index: 0;
+}
+
+.slide p {
+  line-height: 1.5;
 }

@@ -6,7 +6,7 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
-	<link rel="stylesheet" href="http://netology-university.bitbucket.org/codestyle/styles/prism.css">
+	<link rel="stylesheet" href="css/prism.css">
 	<link rel="stylesheet" href="css/prism-fix.css">
 </head>
 <body class="shower list">
@@ -17,17 +17,74 @@
 	<section class="slide" id="cover">
     <h2 class="shout">EcmaScript 2015 в&nbsp;Node.js</h2>
 	</section>
-	<section class="slide">
+	<section class="slide" id="roadmap">
     <h2>План занятия</h2>
-    <ol>
-      <li><a href="#">Пункт 1</a></li>
-      <li><a href="#">Пункт 2</a></li>
-      <li><a href="#">Пункт 3</a></li>
-      <li><a href="#">Пункт 4</a></li>
-      <li><a href="#">Пункт 5</a></li>
-      <li><a href="#">Пункт 6</a></li>
+    <ol class="double">
+      <li><a href="#let-const"><code>let</code> и <code>const</code></a></li>
+      <li><a href="#arrow-func">стрелочные функции</a></li>
+      <li><a href="#default-args">аргументы функции по умолчанию</a></li>
+      <li><a href="#spread">деструктуризация</a></li>
+      <li><a href="#rest">объединение</a></li>
+      <li><a href="#object-literals">свойства и методы объектов</a></li>
+      <li><a href="#class">Классы</a></li>
+      <li><a href="#templates">Строковые шаблоны</a></li>
+      <li><a href="#for-of">Цикл <code>for … of</code></a></li>
     </ol>
 	</section>
+  <section class="slide" id="let-const">
+    <h2>Область видимости <code>var</code></h2>
+    <p>Чему будет равна переменная <code>name</code>?</p>
+    <pre>
+      <code class="language-javascript line-numbers">
+        function test() {
+          var name = 'Мария';
+        }
+
+        test();
+        console.log(name); // ???
+      </code>
+    </pre>
+  </section>
+  <section class="slide">
+    <h2>Область видимости <code>var</code></h2>
+    <p>Область видимости <code>var</code> — функция. За пределами функции переменная не доступна.</p>
+    <pre>
+      <code class="language-javascript line-numbers">
+        function test() {
+          var name = 'Мария';
+        }
+
+        test();
+        console.log(name); // <mark>undefined</mark>
+      </code>
+    </pre>
+  </section>
+  <section class="slide">
+    <h2>Область видимости <code>var</code></h2>
+    <p>А теперь чему равна переменная <code>name</code>?</p>
+    <pre>
+      <code class="language-javascript line-numbers">
+        if (true) {
+          var name = 'Мария';
+        }
+
+        console.log(name); // ???
+      </code>
+    </pre>
+  </section>
+  <section class="slide">
+    <h2>Область видимости <code>var</code></h2>
+    <p>Переменная доступна за пределеми блока в котором определена, потому что создание и обращение в одной области видимости.</p>
+    <pre>
+      <code class="language-javascript line-numbers">
+        if (true) {
+          var name = 'Мария';
+        }
+
+        console.log(name); // <mark>Мария</mark>
+      </code>
+    </pre>
+  </section>
   <section class="slide">
     <h2>Пример кода</h2>
     <script type="text/plain" class="lang-markup language-html line-numbers show-invisible">
@@ -68,6 +125,6 @@
 
 	<div class="progress"></div>
 	<script src="shower/shower.min.js"></script>
-  <script src="http://netology-university.bitbucket.org/codestyle/js/prism.js?v=2"></script>
+  <script src="js/prism.js?v=2"></script>
 </body>
 </html>
