@@ -11,13 +11,19 @@
   display: initial;
 }
 
+code[class*="language-"],
+pre[class*="language-"] {
+  font-family: PT Mono, monospace;
+}
+
 pre[class*="language-"] {
   padding-top: 0.5em;
   padding-bottom: 0.5em;
-  margin: 0 0 1em -3.2em;
+  margin: 0 0 1em 0;
 }
 
 pre.line-numbers {
+  margin-left: -3.2em;
   padding-left: 3.2em;
 }
 
@@ -38,4 +44,12 @@ pre.line-numbers {
 
 .slide p {
   line-height: 1.5;
+}
+
+.slide ol li::before, .slide ul li::before {
+  width: 3em;
+}
+
+.slide figure > img {
+  width: 100%;
 }
