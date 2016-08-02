@@ -19,7 +19,7 @@ pre[class*="language-"] {
 pre[class*="language-"] {
   padding-top: 0.5em;
   padding-bottom: 0.5em;
-  margin: 0 0 1em 0;
+  margin: 0 -1em 1em;
 }
 
 pre.line-numbers {
@@ -40,8 +40,11 @@ pre.line-numbers {
 
 .slide pre mark {
   z-index: 0;
+  margin: 0 -.2em;
 }
 
+.slide ol li,
+.slide ul li,
 .slide p {
   line-height: 1.5;
 }
@@ -52,4 +55,8 @@ pre.line-numbers {
 
 .slide figure > img {
   width: 100%;
+}
+
+.slide li + li {
+  margin-top: 0.5em;
 }
