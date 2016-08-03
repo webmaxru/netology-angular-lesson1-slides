@@ -1,23 +1,38 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-	<title>ES2015 в Node.js</title>
-	<meta charset="utf-8">
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
-	<link rel="stylesheet" href="css/prism.css">
-	<link rel="stylesheet" href="css/prism-fix.css">
+  <title>ES2015 в Node.js</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <link rel="stylesheet" href="css/prism-fix.css">
+  <link rel="stylesheet" href="css/netology.css">
 </head>
 <body class="shower list">
-	<header class="caption">
-		<h1>ES2015 в Node.js</h1>
-		<p>Дмитрий Фитискин, Нетология</p>
-	</header>
+  <header class="caption">
+    <h1>ES2015 в Node.js</h1>
+    <p>Дмитрий Фитискин, Нетология</p>
+  </header>
 
-	<section class="slide" id="cover">
-    <h2 class="shout">EcmaScript 2015 в&nbsp;Node.js</h2>
-	</section>
+  <section class="slide" id="cover">
+    <h2>EcmaScript 2015 в&nbsp;Node.js</h2>
+    <p>
+      <img src="i/dfitiskin.jpg" alt="" class="avatar">
+      Дмитрий Фитискин <span class="position">Нетология</span>
+    </p>
+  </section>
+  <section class="slide author" id="author">
+    <img src="i/dfitiskin.jpg" alt="">
+    <h1>Дмитрий Фитискин</h1>
+    <p class="position">руководитель направления «Программирование»</p>
+    <ul class="contacts">
+      <li><a href="mailto:dfitiskin@gmail.ru"><i class="fa fa-envelope-o" aria-hidden="true"></i>dfitiskin@gmail.ru</a></li>
+      <li><a href="skype:dfitiskin?call"><i class="fa fa-skype" aria-hidden="true"></i>dfitiskin</a></li>
+      <li><a href="https://fb.me/dfitiskin"><i class="fa fa-facebook" aria-hidden="true"></i>fb.me/dfitiskin</a></li>
+    </ul>
+  </section>
 
   <section class="slide" id="intro">
     <h2>Что такое Node.js</h2>
@@ -28,7 +43,7 @@
       <li>Целью Node является предложить простой способ построения масштабируемых сетевых серверов.</li>
       <li>Вместо многопоточности представляет собой событийно-ориентированную систему.</li>
     </ul>
-	</section>
+  </section>
 
   <section class="slide" id="install-win">
     <h2>Установка Node.js</h2>
@@ -39,7 +54,7 @@
       <li>Есть и другие версии под разные платформы.</li>
       <li>Под Win и OSX следуйте по шагам установщика.</li>
     </ol>
-	</section>
+  </section>
 
   <section class="slide" id="first-run">
     <h2>Запуск Node.js</h2>
@@ -49,7 +64,7 @@
       <li><code>node -i</code> — запуск интерактивной консоли.</li>
       <li><code>node test.js</code> — выполнение кода из файла <code>test.js</code> расположенного в текущей папке.</li>
     </ul>
-	</section>
+  </section>
 
   <section class="slide" id="editor">
     <h2>Выбор редактора</h2>
@@ -59,7 +74,7 @@
         Если вы еще не выбрали редактор — рекомендую <a href="https://atom.io">Atom</a>
       </figcaption>
     </figure>
-	</section>
+  </section>
 
   <section class="slide" id="git">
     <h2>Рекомендую использовать <a href="https://git-scm.com/">git</a> для контроля версий кода</h2>
@@ -69,9 +84,9 @@
       <li>Опубликать локальный репозиторий на <a href="https://github.com/">GitHub</a> или <a href="https://bitbucket.org/">BitBucket</a> <code>git&nbsp;remote&nbsp;add</code></li>
       <li>Опубликовать текущее состояние локального репозитория <code>git&nbsp;push</code>.</li>
     </ul>
-	</section>
+  </section>
 
-	<section class="slide" id="roadmap">
+  <section class="slide" id="roadmap">
     <h2>План занятия</h2>
     <ol class="double">
       <li><a href="#var"><code>var</code> и его грабли</a></li>
@@ -87,7 +102,7 @@
       <li><a href="#templates">Строковые шаблоны</a></li>
       <li><a href="#for-of">Цикл <code>for … of</code></a></li>
     </ol>
-	</section>
+  </section>
 
   <section class="slide" id="var">
     <h2>Область видимости <code>var</code></h2>
@@ -363,7 +378,7 @@
     </p>
   </section>
   <section class="slide">
-    <h2>При попытке перезаписать переменную возникает ошибка при любом типе данных</h2>
+    <h2>Перезапись переменной вызывает ошибку при любом типе данных</h2>
     <pre>
       <code class="language-javascript line-numbers">
         const names = ['Дима', 'Олег', 'Роман'];
@@ -429,7 +444,7 @@
     </pre>
   </section>
   <section class="slide">
-    <h2>Несколько аргументов в функцие-стрелке</h2>
+    <h2>Несколько аргументов</h2>
     <p>
       Заключаем блок аргументов в скобки:
     </p>
@@ -516,7 +531,7 @@
     </pre>
   </section>
   <section class="slide">
-    <h2>Решение ES5: сохранить <code>this</code> в переменную и использовать замыкание</h2>
+    <h2>ES5: сохранить <code>this</code> в переменную и использовать замыкание</h2>
     <pre>
       <code class="language-javascript line-numbers">
         var user = {
@@ -593,7 +608,7 @@
   </section>
 
   <section class="slide" id="default-args">
-    <h2>В функциях и функциях-стрелках можно задавать значения аргументов по умолчанию</h2>
+    <h2>Значения по умолчанию аргументов функции</h2>
     <pre>
       <code class="language-javascript line-numbers">
         function greating(name = 'Гость') {
@@ -818,7 +833,6 @@
             this.yob = now.getFullYear() - age;
           },
         }
-
         user.age = 67;
         console.log(user.yob); // <mark>1949</mark>
       </code>
@@ -978,10 +992,21 @@
     </ul>
   </section>
 
+  <section class="slide last">
+    <p class="thanx">Задавайте вопросы и напишите отзыв о лекции!</p>
+    <address>Дима Фитискин</address>
+    <ul class="contacts">
+      <li><a href="mailto:dfitiskin@gmail.ru"><i class="fa fa-envelope-o" aria-hidden="true"></i>dfitiskin@gmail.ru</a></li>
+      <li><a href="skype:dfitiskin?call"><i class="fa fa-skype" aria-hidden="true"></i>dfitiskin</a></li>
+      <li><a href="https://fb.me/dfitiskin"><i class="fa fa-facebook" aria-hidden="true"></i>fb.me/dfitiskin</a></li>
+    </ul>
+  </section>
 
 
-	<div class="progress"></div>
-	<script src="shower/shower.min.js"></script>
+
+  <div class="progress"></div>
+  <script src="shower/shower.min.js"></script>
   <script src="js/prism.js?v=2"></script>
+  <script src="https://use.fontawesome.com/30b5a52164.js"></script>
 </body>
 </html>
