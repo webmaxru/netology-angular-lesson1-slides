@@ -7,7 +7,7 @@ body {
 }
 
 h1,
-h2,
+h2:not(.shout),
 h3 {
   text-transform: uppercase;
 }
@@ -19,7 +19,7 @@ h3 {
 }
 
 /* Стиль декоративной полоски */
-h2:before {
+h2:not(.shout):before {
   content: "";
   display: block;
   width: 65px;
@@ -349,8 +349,8 @@ dd {
 }
 
 .blockquote > img {
-  max-height: 100%;
-  max-width: 50%;
+  height: 100%;
+  max-width: 30%;
   position: absolute;
   top: 0;
   left: 0;
@@ -367,6 +367,7 @@ dd {
 }
 
 .blockquote blockquote+figcaption {
+  margin-top: 1em;
   font-style: normal;
 }
 
@@ -421,5 +422,17 @@ address {
   margin-top: 150px;
   font-weight: bold;
   font-size: 36px;
+}
+
+.chapter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.chapter h2 {
+  font-size: 86px;
+  width: 100%;
 }
 /* End */
