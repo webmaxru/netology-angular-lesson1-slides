@@ -65,7 +65,16 @@
     <li><a href="#spa">SPA</a></li>
     <li><a href="#mvc">MVC</a></li>
     <li><a href="#download">Установка и подключение</a></li>
+    <li><a href="#dataBinding">Data binding</a></li>
+    <li><a href="#scope">Scope</a></li>
+    <li><a href="#template">Шаблон
+    </a></li>
+    <li><a href="#controller">Kонтроллер</a></li>
+    <li><a href="#model">Mодель</a></li>
     <li><a href="#directives">Директивы</a></li>
+    <li><a href="#expressions">Выражения</a></li>
+    <li><a href="#expressions">Фильтры</a></li>
+    <li><a href="#expressions">Выражения</a></li>
     <li><a href="#expressions">Выражения</a></li>
   </ol>
 </section>
@@ -168,13 +177,14 @@
   <h2>Шаблон</h2>
 
   <p>
-    Cтатичный DOM, содержащий HTML, CSS, и специальные элементы и атрибуты Angular   </p>
+    Cтатичный DOM, содержащий HTML, CSS, и специальные элементы и атрибуты Angular </p>
  <pre>
       <code class="language-html line-numbers">
         <xmp>
           <ul>
             <li ng-repeat="pokemon in pokemons">
               <h1>{{pokemon.name}}</h1>
+
               <p>{{pokemon.id}}</p></li>
           </ul>
         </xmp>
@@ -200,8 +210,8 @@
   <code>app.controller('PokemonCtrl', function($scope) { … });
   </code>
   <ul>
-    <li>связывает данные между model и view </li>
-    <li>определяет поведение </li>
+    <li>связывает данные между model и view</li>
+    <li>определяет поведение</li>
     <li><a
       href="http://angular-doc.herokuapp.com/guide/controller">http://angular-doc.herokuapp.com/guide/controller</a>
     </li>
@@ -213,10 +223,10 @@
   <code>$scope.books
   </code>
   <ul>
-    <li>данные, доступные как свойство объекта области видимости </li>
+    <li>данные, доступные как свойство объекта области видимости</li>
     <li><a
-    href="http://angular-doc.herokuapp.com/guide/dev_guide.mvc.understanding_model">http://angular-doc.herokuapp.com/guide/dev_guide.mvc.understanding_model</a>
-  </li>
+      href="http://angular-doc.herokuapp.com/guide/dev_guide.mvc.understanding_model">http://angular-doc.herokuapp.com/guide/dev_guide.mvc.understanding_model</a>
+    </li>
   </ul>
 </section>
 
@@ -225,10 +235,13 @@
   <code>$scope.books
   </code>
   <ul>
-    <li>Область видимости является объектом, относящимся к модели приложения. Это контекст выполнения выражений. Области расположены в иерархической структуре, имитирующей DOM-структуру приложения.</li>
+    <li>Область видимости является объектом, относящимся к модели приложения. Это контекст выполнения выражений. Области
+      расположены в иерархической структуре, имитирующей DOM-структуру приложения.
+    </li>
     <li>Они могут отслеживать изменения выражений и распространять события.</li>
     <li>Области предоставляют API ($watch) для наблюдения за изменениями модели.
-    <li>Области предоставляют API ($apply) для распространения любых изменений модели через систему внутри «сферы Angular» (контроллеры, сервисы, обработчики событий)
+    <li>Области предоставляют API ($apply) для распространения любых изменений модели через систему внутри «сферы
+      Angular» (контроллеры, сервисы, обработчики событий)
   </ul>
 </section>
 <section class="slide" id="scope2">
@@ -236,11 +249,13 @@
   <code>$scope.books
   </code>
   <ul>
-    <li>Области могут быть вложенными, чтобы изолировать компоненты приложений, обеспечивая при этом доступ к общим свойствам модели. Область (прототипически) наследует свойства от родительской области.
-    <li>Области создают контекст в котором вычисляются выражения. Например, выражение {{username}} не имеет смысла, если оно не вычислено в области, определяющей переменную username.
+    <li>Области могут быть вложенными, чтобы изолировать компоненты приложений, обеспечивая при этом доступ к общим
+      свойствам модели. Область (прототипически) наследует свойства от родительской области.
+    <li>Области создают контекст в котором вычисляются выражения. Например, выражение {{username}} не имеет смысла, если
+      оно не вычислено в области, определяющей переменную username.
     <li><a
-    href="http://angular-doc.herokuapp.com/guide/scope">http://angular-doc.herokuapp.com/guide/scope</a>
-  </li>
+      href="http://angular-doc.herokuapp.com/guide/scope">http://angular-doc.herokuapp.com/guide/scope</a>
+    </li>
   </ul>
 </section>
 
@@ -299,8 +314,12 @@
 
 </section>
 
-<section class="slide" id="directives3">
+<section class="slide" id="directives4">
   <h2>Встроенные директивы</h2>
+  <code>ng-click</code>
+  <p>
+    Клик-обработчик
+  </p>
   <code>ng-show & ng-hide</code>
 
   <p>Отображение или скрытие элемента средствами CSS согласно условному выражению</p>
@@ -404,38 +423,73 @@
 </section>
 
 <section class="slide" id="filters3">
-  <h2>Фильтры в контроллерах и директивах</h2>
-  <code>orderBy</code>
+  <h2>PRO Фильтры в контроллерах и директивах</h2>
+  <pre>
+      <code class="language-html line-numbers">
+        <xmp>
+          <div ng-controller="FilterController as ctrl">
+            <div>
+              All entries:
+              <span ng-repeat="entry in ctrl.array">{{entry.name}} </span>
+            </div>
+            <div>
+              Entries that contain an "a":
+              <span ng-repeat="entry in ctrl.filteredArray">{{entry.name}} </span>
+            </div>
+          </div>
+        </xmp>
+      </code>
+ </pre>
+</section>
 
-  <p>
-    Сортировка согласно компаратору </p>
-  <code>lowercase</code>
-  <code>uppercase</code>
-  <code>json</code>
+<section class="slide" id="filters4">
+  <h2>PRO Фильтры в контроллерах и директивах</h2>
+  <pre>
+  <code class="language-javascript line-numbers">
+    angular.module('FilterInControllerModule', []).
+    controller('FilterController', ['filterFilter', function FilterController(filterFilter) {
+      this.array = [
+      {name: 'Tobias'},
+      {name: 'Jeff'},
+      {name: 'Brian'},
+      {name: 'Igor'},
+      {name: 'James'},
+      {name: 'Brad'}
+      ];
+      this.filteredArray = filterFilter(this.array, 'a');
+    }]);</code>
+     </pre>
+</section>
 
-  <p>
-    Конвертирует JS объект в JSON
-  </p>
-  <code>number</code>
+<section class="slide" id="next">
+  <h2>В следующий раз:</h2>
 
-  <p>
-    Форматирует число
-  </p>
-  <code>currency</code>
+  <p> Формы </p>
 
-  <p>
-    Формат валюты ($1,234.56)
-  </p>
-  <code>limitTo
-  </code>
+  <p>Модульность приложения</p>
 
-  <p>
-    Новый массив или строка с ограниченным числом элементов
-  </p>
-  <code>date</code>
+  <p>сервисы</p>
+
+  <p> dependency injection</p>
+
+  <p> Роутинг</p>
 
 
 </section>
+
+<section class="slide" id="homework">
+  <h2>Практика:</h2>
+
+  <p>Добавить сортировку по имени</p>
+  <p>Добавить сортировку по весу в порядке убывания</p>
+  <p>Добавить кнопку с фильтрацией по типу</p>
+  <p>Вывести alert с именем покемона по клику на его картинку</p>
+  <p>Вывести имя покемонов разными цветами - синим, если водный тип, красным, если огонь, зеленым, если трава (ng-class)</p>
+  <p> (зачет с отличием) Вынести фильтр в контроллер (см https://docs.angularjs.org/guide/filter) </p>
+
+
+</section>
+
 
 <section class="slide">
   <h2>Как предоставить код домашней работы на проверку</h2>
