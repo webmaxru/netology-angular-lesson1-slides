@@ -59,7 +59,6 @@
 </section>
 
 
-
 <section class="slide" id="roadmap">
   <h2>План занятия</h2>
   <ol class="double">
@@ -165,6 +164,85 @@
   </ul>
 </section>
 
+<section class="slide" id="template">
+  <h2>Шаблон</h2>
+
+  <p>
+    Cтатичный DOM, содержащий HTML, CSS, и специальные элементы и атрибуты Angular   </p>
+ <pre>
+      <code class="language-html line-numbers">
+        <xmp>
+          <ul>
+            <li ng-repeat="pokemon in pokemons">
+              <h1>{{pokemon.name}}</h1>
+              <p>{{pokemon.id}}</p></li>
+          </ul>
+        </xmp>
+      </code>
+ </pre>
+
+</section>
+
+
+<section class="slide" id="dataBinding">
+  <h2>ДВУСТОРОННЕЕ СВЯЗЫВАНИЕ ДАННЫХ</h2>
+  <ul class="double">
+    <li>Процесс привязывания значения из DOM к данным модели через контроллер и его область видимости
+      <code>{{name}}</code>
+    </li>
+    <img src="https://docs.angularjs.org/img/Two_Way_Data_Binding.png">
+  </ul>
+</section>
+
+
+<section class="slide" id="controller">
+  <h2>Контроллер</h2>
+  <code>app.controller('PokemonCtrl', function($scope) { … });
+  </code>
+  <ul>
+    <li>связывает данные между model и view </li>
+    <li>определяет поведение </li>
+    <li><a
+      href="http://angular-doc.herokuapp.com/guide/controller">http://angular-doc.herokuapp.com/guide/controller</a>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="model">
+  <h2>МОДЕЛЬ</h2>
+  <code>$scope.books
+  </code>
+  <ul>
+    <li>данные, доступные как свойство объекта области видимости </li>
+    <li><a
+    href="http://angular-doc.herokuapp.com/guide/dev_guide.mvc.understanding_model">http://angular-doc.herokuapp.com/guide/dev_guide.mvc.understanding_model</a>
+  </li>
+  </ul>
+</section>
+
+<section class="slide" id="scope">
+  <h2>Scope</h2>
+  <code>$scope.books
+  </code>
+  <ul>
+    <li>Область видимости является объектом, относящимся к модели приложения. Это контекст выполнения выражений. Области расположены в иерархической структуре, имитирующей DOM-структуру приложения.</li>
+    <li>Они могут отслеживать изменения выражений и распространять события.</li>
+    <li>Области предоставляют API ($watch) для наблюдения за изменениями модели.
+    <li>Области предоставляют API ($apply) для распространения любых изменений модели через систему внутри «сферы Angular» (контроллеры, сервисы, обработчики событий)
+  </ul>
+</section>
+<section class="slide" id="scope2">
+  <h2>Scope</h2>
+  <code>$scope.books
+  </code>
+  <ul>
+    <li>Области могут быть вложенными, чтобы изолировать компоненты приложений, обеспечивая при этом доступ к общим свойствам модели. Область (прототипически) наследует свойства от родительской области.
+    <li>Области создают контекст в котором вычисляются выражения. Например, выражение {{username}} не имеет смысла, если оно не вычислено в области, определяющей переменную username.
+    <li><a
+    href="http://angular-doc.herokuapp.com/guide/scope">http://angular-doc.herokuapp.com/guide/scope</a>
+  </li>
+  </ul>
+</section>
 
 <section class="slide" id="directive">
   <h2>Директива</h2>
@@ -172,14 +250,16 @@
   <ul>
     <li>Oписывают изменение поведения или преобразование DOM</li>
     <li> множество встроенных и возможность написания собственных</li>
-    <li>http://angular.ru/guide/directive</li>
+    <li><a
+      href="http://angular-doc.herokuapp.com/guide/directive">http://angular-doc.herokuapp.com/guide/directive</a>
+    </li>
   </ul>
 </section>
 
 
 <section class="slide" id="directives">
   <h2>Встроенные директивы</h2>
-  <code> ng-app</code>
+  <code>ng-app</code>
 
   <p>
     Корневой элемент angular приложения
@@ -252,13 +332,109 @@
   <h2>Выражения Angular vs выражения JavaScript</h2>
   <ul>
     <li>значение всех свойств вычисляются в области видимости в отличие от JavaScript, где выражения
-      вычисляются в глобальном window</li>
+      вычисляются в глобальном window
+    </li>
     <li>вычисление выражений лояльно к неопределенным и нулевым значениям, в отличие от JavaScript, где
-      такие вычисления выдадут исключение NullPointerException</li>
-    <li> последовательность действий не изменяется: в Angular нельзя использовать условные операторы, циклы и исключения</li>
+      такие вычисления выдадут исключение NullPointerException
+    </li>
+    <li> последовательность действий не изменяется: в Angular нельзя использовать условные операторы, циклы и
+      исключения
+    </li>
     <li> фильтры: можно передать результат вычисления выражений через цепочку фильтров. Например, чтобы преобразовать
-      объект даты в специфичный для данного региона понятный человеку формат.</li>
+      объект даты в специфичный для данного региона понятный человеку формат.
+    </li>
   </ul>
+</section>
+
+<section class="slide" id="filter">
+  <h2>Фильтр</h2>
+  <code> | uppercase </code>
+  <ul>
+    <li> форматируют данные для отображения пользователю</li>
+    <li> множество встроенных и возможность написания собственных</li>
+    <li><a
+      href="http://angular-doc.herokuapp.com/guide/filter">http://angular-doc.herokuapp.com/guide/filter</a>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="filters">
+  <h2>Использование фильтров</h2>
+
+  <p>
+    Фильтры могут быть частью вычисления любой области видимости, но, как правило, используются для форматирования
+    выражений в связанных шаблонах:
+  </p>
+  <code> {{ expression | filter }}</code>
+
+  <p>
+    Фильтры, как правило, преобразуют данные из одного типа в другой, форматируя их в процессе. Фильтры могут быть
+    соединены в цепочку, и могут принимать дополнительные аргументы.
+  </p>
+  <code>{{ expression | filter1 | filter2 }}
+  </code>
+
+  <p>
+    Также можно передать через двоеточие аргументы, например, для отображения номера 123 с двумя знаками после запятой:
+
+  </p>
+  <code> 123 | number:2
+  </code>
+
+</section>
+
+
+<section class="slide" id="filters2">
+  <h2>Встроенные фильтры</h2>
+  <code>orderBy</code>
+
+  <p>
+    Сортировка согласно компаратору </p>
+  <code>lowercase</code>
+  <code>uppercase</code>
+  <code>json</code>
+
+  <code>number</code>
+  <code>currency</code>
+  <code>limitTo
+  </code>
+  <code>date</code>
+
+
+</section>
+
+<section class="slide" id="filters3">
+  <h2>Фильтры в контроллерах и директивах</h2>
+  <code>orderBy</code>
+
+  <p>
+    Сортировка согласно компаратору </p>
+  <code>lowercase</code>
+  <code>uppercase</code>
+  <code>json</code>
+
+  <p>
+    Конвертирует JS объект в JSON
+  </p>
+  <code>number</code>
+
+  <p>
+    Форматирует число
+  </p>
+  <code>currency</code>
+
+  <p>
+    Формат валюты ($1,234.56)
+  </p>
+  <code>limitTo
+  </code>
+
+  <p>
+    Новый массив или строка с ограниченным числом элементов
+  </p>
+  <code>date</code>
+
+
 </section>
 
 <section class="slide">
