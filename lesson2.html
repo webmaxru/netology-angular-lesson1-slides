@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>AngularJS</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <link rel="stylesheet" href="css/prism-fix.css">
+  <link rel="stylesheet" href="css/netology.css">
+</head>
+<body class="shower list">
+<header class="caption">
+  <h1>Angular JS</h1>
+
+  <p>Екатерина Орлова, Accenture</p>
+</header>
+
+<section class="slide" id="cover">
+  <h2>AngularJS</h2>
+
+  <p>
+    <img src="i/orlova.JPG" alt="" class="avatar">
+    Екатерина Орлова <span class="position">Accenture</span>
+  </p>
+</section>
+
+<section class="slide" id="di1">
+  <h2>Dependency injection</h2>
+  <ul>
+    <li>Паттерн проектирования, отвечающий за получение компонентами приложения своих зависимостей</li>
+    <li>Способ улучшить структуру приложения, распределив самостоятельные части логики между различными модулями</li>
+    <li>Для управления ответственностью за создание зависимостей в каждом Angular-приложении есть инжектор. Инжектор -
+      это локатор служб отвечающий за создание и поиск зависимостей.
+    </li>
+    <li>Для подключения сервисов необходимо объявить имена зависимостей, которые необходимы, в качестве аргументов для
+      функции конструктора контроллера
+    </li>
+
+  </ul>
+</section>
+
+
+<section class="slide" id="di2">
+  <h2>Неявная аннотация</h2>
+  <p>Самый простой способ захватить зависимости - это использовать названия зависимостей в качестве названий параметров метода.</p>
+  <pre>
+  <code class="language-javascript line-numbers">
+    function MyController($scope, greeter) {
+    ...
+    }
+  </code>
+  </pre>
+  <p>Получив метод, инжектор может узнать, какие зависимости нужно внедрить, исследуя объявление метода и выделяя названия параметров. В коде выше $scope и greeter являются сервисами, которые нужно внедрить в метод.</p>
+
+
+</section>
+
+<section class="slide" id="di3">
+  <h2>Inline Array Annotation</h2>
+  <p>Передаем массив строк(имена зависимостей), потом функцию.</p>
+  <pre>
+  <code class="language-javascript line-numbers">
+    someModule.controller('MyController', ['$scope', 'greeter', function($scope, greeter) {
+    // ...
+    }]);
+  </code>
+  </pre>
+
+
+</section>
+
+<section class="slide" id="di4">
+  <h2>Аннотация $inject</h2>
+  <p>Порядок значений в массиве inject должен совпадать с порядком аргументов функции</p>
+  <pre>
+  <code class="language-javascript line-numbers">
+    var MyController = function($scope, greeter) {
+    // ...
+    }
+    MyController.$inject = ['$scope', 'greeter'];
+    someModule.controller('MyController', MyController);
+  </code>
+  </pre>
+
+
+</section>
+
+<section class="slide" id="scope-inheritance">
+  <h2>Наследование областей видимости</h2>
+
+  <img style="width: 600px" src="i/scopes.PNG" alt="">
+
+</section>
+
+<section class="slide" id="scope-inspect">
+  <h2>Инспекция $scope в консоли</h2>
+
+  <img style="width: 600px" src="i/scopes2.PNG" alt="">
+
+</section>
+
+<section class="slide" id="controlleras">
+  <h2>Controller as синтаксис</h2>
+  <ul>
+    <li>Рекомендованный синтаксис</li>
+    <li>Именованные $scope</li>
+    <li>Внедряем зависимость $scope, если нужно что-то специальное ($scope.$watch, scope.$on и т.д)</li>
+  </ul>
+</section>
+
+<section class="slide" id="form">
+  <h2>Формa</h2>
+<p>Коллекция элементов управления(controls) с целью группировки связанных элементов вмест</p>
+<p>Обеспечивает валидацию сервисов, так что пользователь может быть уведомлен о некорректном вводе. Это улучшает пользовательский опыт, так как пользователь получает мгновенную обратную связь о том, как исправить ошибку.</p>
+</section>
+
+<section class="slide" id="form2">
+  <h2>Состояние</h2>
+  <p>  Для предоставления возможности оформления форм так же, как и элементов управления, ngModel добавляется такие CSS классы:</p>
+<ul>
+  <li>ng-valid
+  <li>ng-invalid
+  <li>ng-pristine
+  <li>ng-dirty
+  </ul>
+</section>
+
+
+<section class="slide" id="homework">
+  <h2>Практика:</h2>
+
+  <p>Добавить сортировку по имени</p>
+
+  <p>Добавить сортировку по весу в порядке убывания</p>
+
+  <p>Добавить кнопку с фильтрацией по типу</p>
+
+  <p>Вывести alert с именем покемона по клику на его картинку</p>
+
+  <p>Вывести имя покемонов разными цветами - синим, если водный тип, красным, если огонь, зеленым, если трава
+    (ng-class)</p>
+
+  <p> (зачет с отличием) Вынести фильтр в контроллер (см https://docs.angularjs.org/guide/filter) </p>
+
+
+</section>
+
+
+<section class="slide">
+  <h2>Как предоставить код домашней работы на проверку</h2>
+
+  <p>
+    Способы предоставить домашнее задание в порядке приоритета:
+  </p>
+  <ol>
+    <li>Исходный код на <a href="https://bitbucket.org/">BitBucket</a> или <a href="https://github.com/">GitHub</a></li>
+    <li>Код в <a href="http://codepen.io/">CodePen</a> или <a href="https://jsfiddle.net/">JSFiddle</a></li>
+  </ol>
+</section>
+
+<section class="slide last">
+  <p class="thanx">Задавайте вопросы и напишите отзыв о лекции!</p>
+  <address>Екатерина Орлова</address>
+  <ul class="contacts">
+    <li><a href="mailto:ekaterina.orlova@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i>ekaterina.orlova@gmail.com</a>
+    </li>
+    <li><a href="skype:katerinaorlova?call"><i class="fa fa-skype" aria-hidden="true"></i>katerinaorlova</a></li>
+  </ul>
+</section>
+
+
+<div class="progress"></div>
+<script src="shower/shower.min.js"></script>
+<script src="js/prism.js?v=2"></script>
+<script src="https://use.fontawesome.com/30b5a52164.js"></script>
+</body>
+</html>

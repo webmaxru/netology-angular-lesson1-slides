@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>AngularJS</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <link rel="stylesheet" href="css/prism-fix.css">
+  <link rel="stylesheet" href="css/netology.css">
+</head>
+<body class="shower list">
+<header class="caption">
+  <h1>Angular JS</h1>
+
+  <p>Екатерина Орлова, Accenture</p>
+</header>
+
+<section class="slide" id="cover">
+  <h2>AngularJS</h2>
+
+  <p>
+    <img src="i/orlova.JPG" alt="" class="avatar">
+    Екатерина Орлова <span class="position">Accenture</span>
+  </p>
+</section>
+<section class="slide author" id="author">
+  <img src="i/orlova.JPG" alt="">
+
+  <h1>Екатерина Орлова</h1>
+
+  <p class="position">Software developer, Accenture Norway</p>
+  <ul class="contacts">
+    <li><a href="mailto:ekaterina.orlova@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i>mailto:ekaterina.orlova@gmail.com</a>
+    </li>
+    <li><a href="skype:katerinaorlova?call"><i class="fa fa-skype" aria-hidden="true"></i>katerinaorlova</a></li>
+    <li><a href="http://twitter.com/cheerypick"><i class="fa fa-twitter" aria-hidden="true"></i>@cheerypick</a></li>
+  </ul>
+</section>
+
+<section class="slide" id="intro">
+  <h2>Что такое Angular.js</h2>
+  <ul>
+    <li>Фреймворк для создания вебприложений (в первую очередь - Single Page Applications, SPA)
+      с использованием шаблона MVC
+    </li>
+    <li>Декларативный подход вместо императивного</li>
+    <li>"Если бы HTML был создан для создания приложений"</li>
+  </ul>
+</section>
+<section class="slide" id="plus">
+  <h2>ПЛЮСЫ</h2>
+  <ul>
+    <li>Быстрота и удобство разработки</li>
+    <li>Быстрые, легко поддерживаемые и расширяемые приложения</li>
+    <li>Удобство командной разработки</li>
+  </ul>
+</section>
+
+
+<section class="slide" id="roadmap">
+  <h2>План занятия</h2>
+  <ol class="double">
+    <li><a href="#spa">SPA</a></li>
+    <li><a href="#mvc">MVC</a></li>
+    <li><a href="#download">Установка и подключение</a></li>
+    <li><a href="#dataBinding">Data binding</a></li>
+    <li><a href="#scope">Scope</a></li>
+    <li><a href="#template">Шаблон
+    </a></li>
+    <li><a href="#controller">Kонтроллер</a></li>
+    <li><a href="#model">Mодель</a></li>
+    <li><a href="#directives">Директивы</a></li>
+    <li><a href="#expressions">Выражения</a></li>
+    <li><a href="#expressions">Фильтры</a></li>
+    <li><a href="#expressions">Выражения</a></li>
+    <li><a href="#expressions">Выражения</a></li>
+  </ol>
+</section>
+
+
+<section class="slide" id="spa">
+  <h2>SPA</h2>
+  <ul>
+    SPA
+    <li>Выполняется на стороне клиента в Web-браузере</li>
+    <li>Взаимодействует с сервером через AJAX-запросы (получая шаблоны и данные в ответ на запросы)</li>
+    <li>Без полной перезагрузки страницы</li>
+    <li>Примеры: Gmail, Soundcloud</li>
+  </ul>
+</section>
+
+
+<section class="slide" id="spa-vs-mpa">
+  <h2>SPA</h2>
+  <img src="i/spavsmpa.PNG">
+
+</section>
+
+
+<section class="slide" id="mvc-pic">
+  <h2>MVC</h2>
+
+  <p>Model-view-controller (MVC, «модель-представление-контроллер», «модель-вид-контроллер»)
+    — схема использования нескольких шаблонов проектирования, с помощью которых модель приложения,
+    пользовательский интерфейс и взаимодействие с пользователем разделены на три отдельных компонента таким образом,
+    чтобы модификация одного из компонентов оказывала минимальное воздействие на остальные.</p>
+</section>
+
+<section class="slide" id="mvc">
+  <h2>MVC</h2>
+  <ul class="double">
+    <li>Model - данные и методы работы с ними, БД</li>
+    <li>View - отображение информации: UI, представление</li>
+    <li>Controller - связь между пользователем и системой, между Model и View</li>
+    <li>Angular - MV*: Model-View-Whatever</li>
+  </ul>
+  <img src="i/240px-MVC-Process.png">
+</section>
+
+<section class="slide" id="mvc-scheme">
+  <h2>MVC</h2>
+  <img src="i/MVC.png">
+
+</section>
+
+<section class="slide" id="mvc-angular">
+  <h2>MVC</h2>
+  <img src="i/f1d76d3dfd9d4f302beabb5df46e7b56.png">
+
+</section>
+
+<section class="slide" id="first-run">
+  <h2>Установка и подключение</h2>
+  <ul>
+    <li>СDN</li>
+    <li>Дистрибутив</li>
+    <li>Менеджеры пакетов (bower, npm)</li>
+  </ul>
+</section>
+
+<section class="slide" id="download">
+  <h2>Установка</h2>
+  <img
+    src="i/download.PNG">
+</section>
+
+<section class="slide" id="bootstrap">
+  <h2>Как это работает</h2>
+
+ <pre>
+      <code class="language-html line-numbers">
+        <xmp>
+          <head>
+            <script src="../libs/angular-1.5.3/angular.min.js">
+            </script>
+          </head>
+          <body ng-app>
+          <h1> {{'Hello, ' + 'world!'}}</h1>
+          </body>
+        </xmp>
+      </code>
+ </pre>
+</section>
+
+<section class="slide" id="how-it-works">
+  <h2>Как это работает</h2>
+  <ul>
+    <li>Атрибут<code>ng-app</code> - это директива Angular</li>
+    <li>Она отмечает HTML-элемент, который будет корневым элементом приложения.
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="template">
+  <h2>Шаблон</h2>
+
+  <p>
+    Cтатичный DOM, содержащий HTML, CSS, и специальные элементы и атрибуты Angular </p>
+ <pre>
+      <code class="language-html line-numbers">
+        <xmp>
+          <ul>
+            <li ng-repeat="pokemon in pokemons">
+              <h1>{{pokemon.name}}</h1>
+
+              <p>{{pokemon.id}}</p></li>
+          </ul>
+        </xmp>
+      </code>
+ </pre>
+
+</section>
+
+
+<section class="slide" id="dataBinding">
+  <h2>ДВУСТОРОННЕЕ СВЯЗЫВАНИЕ ДАННЫХ</h2>
+  <ul class="double">
+    <li>Процесс привязывания значения из DOM к данным модели через контроллер и его область видимости
+      <code>{{name}}</code>
+    </li>
+    <img src="https://docs.angularjs.org/img/Two_Way_Data_Binding.png">
+  </ul>
+</section>
+
+
+<section class="slide" id="controller">
+  <h2>Контроллер</h2>
+  <code>app.controller('PokemonCtrl', function($scope) { … });
+  </code>
+  <ul>
+    <li>связывает данные между model и view</li>
+    <li>определяет поведение</li>
+    <li><a
+      href="http://angular-doc.herokuapp.com/guide/controller">http://angular-doc.herokuapp.com/guide/controller</a>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="model">
+  <h2>МОДЕЛЬ</h2>
+  <code>$scope.books
+  </code>
+  <ul>
+    <li>данные, доступные как свойство объекта области видимости</li>
+    <li><a
+      href="http://angular-doc.herokuapp.com/guide/dev_guide.mvc.understanding_model">http://angular-doc.herokuapp.com/guide/dev_guide.mvc.understanding_model</a>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="scope">
+  <h2>Scope</h2>
+  <code>$scope.books
+  </code>
+  <ul>
+    <li>Область видимости является объектом, относящимся к модели приложения. Это контекст выполнения выражений. Области
+      расположены в иерархической структуре, имитирующей DOM-структуру приложения.
+    </li>
+    <li>Они могут отслеживать изменения выражений и распространять события.</li>
+    <li>Области предоставляют API ($watch) для наблюдения за изменениями модели.
+    <li>Области предоставляют API ($apply) для распространения любых изменений модели через систему внутри «сферы
+      Angular» (контроллеры, сервисы, обработчики событий)
+  </ul>
+</section>
+<section class="slide" id="scope2">
+  <h2>Scope</h2>
+  <code>$scope.books
+  </code>
+  <ul>
+    <li>Области могут быть вложенными, чтобы изолировать компоненты приложений, обеспечивая при этом доступ к общим
+      свойствам модели. Область (прототипически) наследует свойства от родительской области.
+    <li>Области создают контекст в котором вычисляются выражения. Например, выражение {{username}} не имеет смысла, если
+      оно не вычислено в области, определяющей переменную username.
+    <li><a
+      href="http://angular-doc.herokuapp.com/guide/scope">http://angular-doc.herokuapp.com/guide/scope</a>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="directive">
+  <h2>Директива</h2>
+  <code>ng-repeat</code>
+  <ul>
+    <li>Oписывают изменение поведения или преобразование DOM</li>
+    <li> множество встроенных и возможность написания собственных</li>
+    <li><a
+      href="http://angular-doc.herokuapp.com/guide/directive">http://angular-doc.herokuapp.com/guide/directive</a>
+    </li>
+  </ul>
+</section>
+
+
+<section class="slide" id="directives">
+  <h2>Встроенные директивы</h2>
+  <code>ng-app</code>
+
+  <p>
+    Корневой элемент angular приложения
+  </p>
+  <code>ng-bind</code>
+
+  <p>
+    Присваивает DOM-элементу значение выражения. Изменения переменной в scope приложения отражаются во view
+  </p>
+  <code>
+    <xmp><span ng-bind="name"></span></xmp>
+  </code>
+
+</section>
+
+<section class="slide" id="directives2">
+  <h2>Встроенные директивы</h2>
+  <code>ng-model</code>
+
+  <p>
+    Cхожа с ng-bind, устанавливает двустороннюю связь между view и model
+  </p>
+  <code>ng-class</code>
+
+  <p>
+    Динамическая загрузка и изменение атрибута class
+  </p>
+  <code>ng-controller</code>
+
+  <p>
+    Определяет JS controller class
+  </p>
+  <code>ng-repeat</code>
+
+  <p>Итерация по коллекции, вывод элементов списка (самая мощная директива angular?)
+  </p>
+
+</section>
+
+<section class="slide" id="directives4">
+  <h2>Встроенные директивы</h2>
+  <code>ng-click</code>
+  <p>
+    Клик-обработчик
+  </p>
+  <code>ng-show & ng-hide</code>
+
+  <p>Отображение или скрытие элемента средствами CSS согласно условному выражению</p>
+  <code>ng-if</code>
+
+  <p>
+    Схоже с ng-show/ng-hide, но элемент убирается из DOM, а при повторном появлении вставляется клон заново
+    скомпилированного элемента</p>
+  (Важно для быстродействия)
+
+  <p>Так как атрибуты с префиксом ng-* - невалидный HTML, есть альтернатива: data-ng-*
+  </p>
+
+</section>
+
+<section class="slide" id="expressions">
+  <h2>Выражения</h2>
+  <code>{{pokemon.name}}, {[1 + 2}}</code>
+  <ul>
+    <li>переменная, которая предварительно должна быть определена в контролере</li>
+    <li>выражение (+, -, …)</li>
+    <li><a
+      href="http://angular-doc.herokuapp.com/guide/expression">http://angular-doc.herokuapp.com/guide/expression</a>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="expressions2">
+  <h2>Выражения Angular vs выражения JavaScript</h2>
+  <ul>
+    <li>значение всех свойств вычисляются в области видимости в отличие от JavaScript, где выражения
+      вычисляются в глобальном window
+    </li>
+    <li>вычисление выражений лояльно к неопределенным и нулевым значениям, в отличие от JavaScript, где
+      такие вычисления выдадут исключение NullPointerException
+    </li>
+    <li> последовательность действий не изменяется: в Angular нельзя использовать условные операторы, циклы и
+      исключения
+    </li>
+    <li> фильтры: можно передать результат вычисления выражений через цепочку фильтров. Например, чтобы преобразовать
+      объект даты в специфичный для данного региона понятный человеку формат.
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="filter">
+  <h2>Фильтр</h2>
+  <code> | uppercase </code>
+  <ul>
+    <li> форматируют данные для отображения пользователю</li>
+    <li> множество встроенных и возможность написания собственных</li>
+    <li><a
+      href="http://angular-doc.herokuapp.com/guide/filter">http://angular-doc.herokuapp.com/guide/filter</a>
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="filters">
+  <h2>Использование фильтров</h2>
+
+  <p>
+    Фильтры могут быть частью вычисления любой области видимости, но, как правило, используются для форматирования
+    выражений в связанных шаблонах:
+  </p>
+  <code> {{ expression | filter }}</code>
+
+  <p>
+    Фильтры, как правило, преобразуют данные из одного типа в другой, форматируя их в процессе. Фильтры могут быть
+    соединены в цепочку, и могут принимать дополнительные аргументы.
+  </p>
+  <code>{{ expression | filter1 | filter2 }}
+  </code>
+
+  <p>
+    Также можно передать через двоеточие аргументы, например, для отображения номера 123 с двумя знаками после запятой:
+
+  </p>
+  <code> 123 | number:2
+  </code>
+
+</section>
+
+
+<section class="slide" id="filters2">
+  <h2>Встроенные фильтры</h2>
+  <code>orderBy</code>
+
+  <p>
+    Сортировка согласно компаратору </p>
+  <code>lowercase</code>
+  <code>uppercase</code>
+  <code>json</code>
+
+  <code>number</code>
+  <code>currency</code>
+  <code>limitTo
+  </code>
+  <code>date</code>
+
+
+</section>
+
+<section class="slide" id="filters3">
+  <h2>PRO Фильтры в контроллерах и директивах</h2>
+  <pre>
+      <code class="language-html line-numbers">
+        <xmp>
+          <div ng-controller="FilterController as ctrl">
+            <div>
+              All entries:
+              <span ng-repeat="entry in ctrl.array">{{entry.name}} </span>
+            </div>
+            <div>
+              Entries that contain an "a":
+              <span ng-repeat="entry in ctrl.filteredArray">{{entry.name}} </span>
+            </div>
+          </div>
+        </xmp>
+      </code>
+ </pre>
+</section>
+
+<section class="slide" id="filters4">
+  <h2>PRO Фильтры в контроллерах и директивах</h2>
+  <pre>
+  <code class="language-javascript line-numbers">
+    angular.module('FilterInControllerModule', []).
+    controller('FilterController', ['filterFilter', function FilterController(filterFilter) {
+      this.array = [
+      {name: 'Tobias'},
+      {name: 'Jeff'},
+      {name: 'Brian'},
+      {name: 'Igor'},
+      {name: 'James'},
+      {name: 'Brad'}
+      ];
+      this.filteredArray = filterFilter(this.array, 'a');
+    }]);</code>
+     </pre>
+</section>
+
+<section class="slide" id="next">
+  <h2>В следующий раз:</h2>
+
+  <p> Формы </p>
+
+  <p>Модульность приложения</p>
+
+  <p>сервисы</p>
+
+  <p> dependency injection</p>
+
+  <p> Роутинг</p>
+
+
+</section>
+
+<section class="slide" id="homework">
+  <h2>Практика:</h2>
+
+  <p>Добавить сортировку по имени</p>
+  <p>Добавить сортировку по весу в порядке убывания</p>
+  <p>Добавить кнопку с фильтрацией по типу</p>
+  <p>Вывести alert с именем покемона по клику на его картинку</p>
+  <p>Вывести имя покемонов разными цветами - синим, если водный тип, красным, если огонь, зеленым, если трава (ng-class)</p>
+  <p> (зачет с отличием) Вынести фильтр в контроллер (см https://docs.angularjs.org/guide/filter) </p>
+
+
+</section>
+
+
+<section class="slide">
+  <h2>Как предоставить код домашней работы на проверку</h2>
+
+  <p>
+    Способы предоставить домашнее задание в порядке приоритета:
+  </p>
+  <ol>
+    <li>Исходный код на <a href="https://bitbucket.org/">BitBucket</a> или <a href="https://github.com/">GitHub</a></li>
+    <li>Код в <a href="http://codepen.io/">CodePen</a> или <a href="https://jsfiddle.net/">JSFiddle</a></li>
+  </ol>
+</section>
+
+<section class="slide last">
+  <p class="thanx">Задавайте вопросы и напишите отзыв о лекции!</p>
+  <address>Екатерина Орлова</address>
+  <ul class="contacts">
+    <li><a href="mailto:ekaterina.orlova@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i>ekaterina.orlova@gmail.com</a>
+    </li>
+    <li><a href="skype:katerinaorlova?call"><i class="fa fa-skype" aria-hidden="true"></i>katerinaorlova</a></li>
+  </ul>
+</section>
+
+
+<div class="progress"></div>
+<script src="shower/shower.min.js"></script>
+<script src="js/prism.js?v=2"></script>
+<script src="https://use.fontawesome.com/30b5a52164.js"></script>
+</body>
+</html>
