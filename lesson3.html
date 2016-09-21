@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>AngularJS</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-16x10.css">
+    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/prism-fix.css">
+    <link rel="stylesheet" href="css/netology.css">
+  </head>
+  <body class="shower list">
+
+    <header class="caption">
+      <h1>XHR-запросы в Angular</h1>
+
+      <p>Максим Сальников, ForgeRock</p>
+    </header>
+
+    <section class="slide" id="cover">
+      <h2>XHR-запросы в Angular</h2>
+
+      <p>
+        <img src="i/Maxim Salnikov - Norway.png" alt="" class="avatar">
+        Максим Сальников
+        <span class="position">ForgeRock</span>
+      </p>
+    </section>
+
+    <header class="slide" id="contents">
+      <h1>Архитектура веб-приложения</h1>
+      <h1>Асинхронность в вебе</h1>
+      <h1>Промисы (Promises) в AngularJS</h1>
+      <h1>Модуль $http</h1>
+      <h1>Примеры запросов</h1>
+      <h1>Websockets в AngularJS</h1>
+    </header>
+
+    <header class="slide" id="arch0">
+      <h2>Архитектура веб-приложения</h2>
+      <h1></h1>
+    </header>
+
+    <header class="slide" id="arch1">
+      <h2>Архитектура веб-приложения</h2>
+      <img src="i/ria-architecture-5.png" alt="">
+    </header>
+
+    <section class="slide" id="arch2">
+
+      <h2>XMLHttpRequest</h2>
+
+      <p>API, доступное в скриптовых языках браузеров, таких как JavaScript. Использует запросы HTTP или HTTPS напрямую к веб-серверу и загружает данные ответа сервера напрямую в вызывающий скрипт</p>
+
+    </section>
+
+    <header class="slide" id="async0">
+      <h2>Асинхронность в вебе</h2>
+    </header>
+
+    <header class="slide" id="async1">
+      <h2>Проблемы</h2>
+      <ul>
+        <li>UI не должен ждать ответ от сервера</li>
+        <li>Проблема в JS - код превращается кучу колбеков</li>
+      </ul>
+    </header>
+
+    <header class="slide" id="async2">
+      <h2>Проблемы</h2>
+      <img src="i/promises-and-chaining-in-angularjs-into-callback-hell-and-back-again-17-638.jpg" alt="">
+    </header>
+
+    <header class="slide" id="promises0">
+      <h2>Промисы (Promises) в AngularJS</h2>
+      <h1></h1>
+    </header>
+
+    <section class="slide" id="promises1">
+
+      <h2>Промисы (Promises) в AngularJS</h2>
+
+      <p>предоставляют интерфейс для взаимодействия с объектами, содержащими результат выполнения некоторой операции, время окончания которой неизвестно.</p>
+      <p>
+        предоставляют удобный способ организации асинхронного кода
+      </p>
+
+    </section>
+
+    <section class="slide" id="promises2">
+
+      <h2>Что в AngularJS возвращает promise?</h2>
+
+      <ul>
+        <li>$http — сервис для выполнения AJAX-запросов</li>
+        <li>$timeout — AngularJS-обертка над setTimeout;</li>
+        <li>различные методы $q — сервиса для создания своих deferred-объектов и promise-ов.</li>
+      </ul>
+
+    </section>
+
+    <section class="slide" id="promises3">
+
+      <h2>Цепочки</h2>
+
+      <img src="i/promiseUserFlow.png" alt="">
+
+    </section>
+
+    <header class="slide" id="http0">
+      <h2>$http</h2>
+      <h1></h1>
+    </header>
+
+    <header class="slide" id="http1">
+      <h2>Сервис $http</h2>
+      <h1>Сервис $http является базовым сервисом Angular, который используется для коммуникаций с удаленным HTTP сервером с помощью браузерного объекта XMLHttpRequest или JSONP</h1>
+    </header>
+
+    <section class="slide" id="http2">
+
+      <h2>Подключение</h2>
+
+      <pre>
+<code class="language-javascript line-numbers">
+.factory('AppService', function($http) {
+  ...
+});
+</code>
+</pre>
+
+    </section>
+
+    <header class="slide" id="examples0">
+      <h2>Примеры запросов</h2>
+      <h1></h1>
+    </header>
+
+    <section class="slide" id="examples1">
+
+      <h2>Базовый вариант</h2>
+
+      <pre>
+<code class="language-javascript line-numbers">
+  $http({
+    method: 'GET',
+    url: '/someUrl'
+  }).then(function successCallback(response) {
+      // ОК
+    }, function errorCallback(response) {
+      // Не ОК
+    });
+</code>
+</pre>
+
+    </section>
+
+    <section class="slide" id="examples2">
+
+      <h2>Сокращения</h2>
+
+      <pre>
+<code class="language-javascript line-numbers">
+  $http.get
+  $http.head
+  $http.post
+  $http.put
+  $http.delete
+  $http.jsonp
+  $http.patch
+</code>
+</pre>
+
+    </section>
+
+    <header class="slide" id="realtime0">
+      <h2>Websockets в AngularJS</h2>
+      <h1>angular-websocket</h1>
+    </header>
+
+    <section class="slide" id="realtime1">
+
+      <h2>Высокоуровневая библиотека для работы с Websockets в AngularJS</h2>
+
+      <p>https://github.com/AngularClass/angular-websocket</p>
+      <p>npm install angular-websocket --save</p>
+
+    </section>
+
+    <section class="slide" id="realtime2">
+
+      <h2>Подключение</h2>
+
+      <pre>
+<code class="language-javascript line-numbers">
+  angular.module('PokemonApp', [ngWebSocket']);
+</code>
+</pre>
+
+    </section>
+
+    <section class="slide" id="realtime3">
+
+      <h2>Подключение</h2>
+
+<pre>
+<code class="language-javascript line-numbers">
+  factory('MySocket', function($websocket) {
+      var ws = $websocket('ws://...');
+      ...
+      return {
+          ...
+      };
+  });
+</code>
+</pre>
+
+    </section>
+
+    <section class="slide" id="realtime4">
+
+      <h2>Использование</h2>
+
+<pre>
+<code class="language-javascript line-numbers">
+.controller('RealtimeCtrl', function($scope, MySocket) {
+...
+$scope.MySocket = MySocket;
+</code>
+</pre>
+
+    </section>
+
+    <section class="slide" id="realtime5">
+      <h2>Socket.io</h2>
+      <p>Для работы с соответствующим backend</p>
+
+        <p>npm install socket.io</p>
+        <p>npm install angular-socket-io</p>
+
+      </section>
+
+
+      <section class="slide" id="homework">
+        <h2>Практика:</h2>
+
+        <p>
+                <p>https://github.com/webmaxru/netology-angular-pokemons/tree/xhr</p>
+        </p>
+
+        <p>Добавить лоадеры в список покемонов и ягод</p>
+
+        <p>Зарегистрироваться на Backendless.com, создать приложение, переподключить на свои application-id и secret-key (https://backendless.com)</p>
+
+        <p>Установить эти два заголовка через $http.defaults.headers (для всех запросов) (http://angular-doc.herokuapp.com/api/ng.$http)</p>
+
+        <p>Сделать интерфейс редактирования покемона (на основе createPokemon) и сделать запрос PUT при клике на Сохранить (подключать backend не нужно)</p>
+
+      </section>
+
+      <section class="slide" id="homework2">
+        <h2>Практика:</h2>
+
+        <p>
+          (зачет с отличием) Переделать вывод списка покемонов я ягод таким образом, чтобы они отображались только при полной загрузке обоих списков, используя $q.all(...) (https://habrahabr.ru/post/189084/)
+        </p>
+
+      </section>
+
+      <section class="slide">
+        <h2>Как предоставить код домашней работы на проверку</h2>
+
+        <p>
+          Способы предоставить домашнее задание в порядке приоритета:
+        </p>
+        <ol>
+          <li>Исходный код на
+            <a href="https://bitbucket.org/">BitBucket</a>
+            или
+            <a href="https://github.com/">GitHub</a>
+          </li>
+          <li>Код в
+            <a href="http://codepen.io/">CodePen</a>
+            или
+            <a href="https://jsfiddle.net/">JSFiddle</a>
+          </li>
+        </ol>
+      </section>
+
+      <section class="slide last">
+        <p class="thanx">Задавайте вопросы!</p>
+        <address>Максим Сальников</address>
+        <ul class="contacts">
+          <li>
+            <a href="mailto:salnikov@gmail.com">
+              <i class="fa fa-envelope-o" aria-hidden="true"></i>salnikov@gmail.com</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/webmaxru">
+              <i class="fa fa-twitter" aria-hidden="true"></i>webmaxru</a>
+          </li>
+        </ul>
+      </section>
+
+      <div class="progress"></div>
+      <script src="node_modules/shower-core/shower.min.js"></script>
+      <script src="js/prism.js?v=2"></script>
+      <script src="https://use.fontawesome.com/30b5a52164.js"></script>
+    </body>
+  </html>
