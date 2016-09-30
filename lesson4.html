@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>AngularJS</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/prism-fix.css">
+    <link rel="stylesheet" href="css/netology.css">
+  </head>
+  <body class="shower list">
+
+    <header class="caption">
+      <h1>Взаимодействие с классически построенным RESTful API - это просто!</h1>
+
+      <p>Максим Сальников, ForgeRock</p>
+    </header>
+
+    <section class="slide" id="cover">
+      <h2>Взаимодействие с классически построенным RESTful API - это просто!</h2>
+
+      <p>
+        <img src="i/Maxim Salnikov - Norway.png" alt="" class="avatar">
+        Максим Сальников
+        <span class="position">ForgeRock</span>
+      </p>
+    </section>
+
+    <header class="slide" id="contents">
+      <h1>RESTful API</h1>
+      <h1>Модуль ngResource</h1>
+    </header>
+
+    <header class="slide" id="rest0">
+      <h2>RESTful API</h2>
+      <h1></h1>
+    </header>
+
+    <header class="slide" id="rest1">
+      <h2>Что такое REST</h2>
+      <p>
+        REST (Representational state transfer) – это стиль архитектуры программного обеспечения для распределенных систем, таких как World Wide Web, который, как правило, используется для построения веб-служб.
+      </p>
+      <p>
+        Системы, поддерживающие REST, называются RESTful-системами.
+      </p>
+    </header>
+
+    <section class="slide" id="rest2">
+
+      <h2>Принципы RESTful</h2>
+
+    </section>
+
+    <header class="slide" id="rest3">
+      <h2>Независимость от состояния (Statelessness)</h2>
+      <p>
+        RESTful сервер не должен отслеживать, хранить и тем более использовать в работе текущую контекстную информацию о клиенте. С другой стороны клиент должен взять эту задачу на себя. Другими словами не заставляйте сервер помнить состояние мобильного
+        устройства, использующего API.
+      </p>
+    </header>
+
+    <header class="slide" id="rest4">
+      <h2>Кэшируемая и многоуровневая архитектура</h2>
+      <p>Ответ сервера может быть кэширован на определенный период времени и использоваться повторно без новых запросов к серверу. Этим клиентом может быть как само мобильное устройство, так и промежуточный прокси сервер.</p>
+    </header>
+
+    <header class="slide" id="rest5">
+      <h2>Клиент – серверное разделение и единый интерфейс</h2>
+      <p>
+        RESTful сервер должен прятать от клиента как можно больше деталей своей реализации. Клиенту не следует знать о том, какая СУБД используется на сервере или сколько серверов в данный момент обрабатывают запросы и прочие подобные вещи.
+      </p>
+    </header>
+
+    <header class="slide" id="rest6">
+      <h2>Ресурсы</h2>
+      <p>Каждая единица информации однозначно определяется URL – это значит, что URL по сути является первичным ключом для единицы данных.
+      </p>
+    </header>
+
+    <section class="slide" id="rest7">
+
+      <h2>Пример</h2>
+
+      <p>
+        GET /book/ — получить список всех книг<br/>
+        GET /book/3/ — получить книгу номер 3<br/>
+        PUT /book/ — добавить книгу (данные в теле запроса)<br/>
+        POST /book/3 – изменить книгу (данные в теле запроса)<br/>
+        DELETE /book/3 – удалить книгу
+      </p>
+
+    </section>
+
+
+    <header class="slide" id="ng0">
+      <h2>ngResource</h2>
+      <h1></h1>
+    </header>
+
+
+    <section class="slide" id="ng1">
+
+      <h2>Подключение</h2>
+
+      <pre>
+<code class="language-javascript line-numbers">
+npm install angular-resource --save
+</code>
+</pre>
+
+    </section>
+
+    <header class="slide" id="ng2">
+      <h2>Подключение</h2>
+
+      <code class="language-html line-numbers">
+        <xmp>
+<script src="../node_modules/angular-resource/angular-resource.js"></script>
+        </xmp>
+      </code>
+
+    </header>
+
+    <section class="slide" id="ng3">
+
+      <h2>Подключение</h2>
+
+      <pre>
+<code class="language-javascript line-numbers">
+var pokemonApp = angular.module('PokemonApp', ['ngRoute', 'ngResource']);
+</code>
+</pre>
+
+    </section>
+
+    <section class="slide" id="ng4">
+
+      <h2>Использование</h2>
+
+      <pre>
+<code class="language-javascript line-numbers">
+  return $resource('https://api.backendless.com/v1/data/pokemon/:pokemonId/', {
+              pokemonId: '@pokemonId'
+          })
+</code>
+</pre>
+
+    </section>
+
+    <section class="slide" id="ng5">
+
+      <h2>Встроенные функции</h2>
+
+      <pre>
+<code class="language-javascript line-numbers">
+  { 'get':    {method:'GET'},
+    'save':   {method:'POST'},
+    'query':  {method:'GET', isArray:true},
+    'remove': {method:'DELETE'},
+    'delete': {method:'DELETE'} };
+</code>
+</pre>
+
+    </section>
+
+    <section class="slide" id="ng6">
+
+      <h2>Использование</h2>
+
+      <pre>
+<code class="language-javascript line-numbers">
+  var User = $resource('/user/:userId', {userId:'@id'});
+  var user = User.get({userId:123}, function() {
+    user.abc = true;
+    user.$save();
+  });
+</code>
+</pre>
+
+    </section>
+
+      <section class="slide">
+        <h2>Как предоставить код домашней работы на проверку</h2>
+
+        <p>
+          Способы предоставить домашнее задание в порядке приоритета:
+        </p>
+        <ol>
+          <li>Исходный код на
+            <a href="https://bitbucket.org/">BitBucket</a>
+            или
+            <a href="https://github.com/">GitHub</a>
+          </li>
+          <li>Код в
+            <a href="http://codepen.io/">CodePen</a>
+            или
+            <a href="https://jsfiddle.net/">JSFiddle</a>
+          </li>
+        </ol>
+      </section>
+
+      <section class="slide last">
+        <p class="thanx">Задавайте вопросы!</p>
+        <address>Максим Сальников</address>
+        <ul class="contacts">
+          <li>
+            <a href="mailto:salnikov@gmail.com">
+              <i class="fa fa-envelope-o" aria-hidden="true"></i>salnikov@gmail.com</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/webmaxru">
+              <i class="fa fa-twitter" aria-hidden="true"></i>webmaxru</a>
+          </li>
+        </ul>
+      </section>
+
+      <div class="progress"></div>
+      <script src="shower/shower.min.js"></script>
+      <script src="js/prism.js?v=2"></script>
+      <script src="https://use.fontawesome.com/30b5a52164.js"></script>
+    </body>
+  </html>
