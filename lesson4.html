@@ -118,7 +118,7 @@ npm install angular-resource --save
 
       <code class="language-html line-numbers">
         <xmp>
-<script src="../node_modules/angular-resource/angular-resource.js"></script>
+<script src="./angular-resource.js"></script>
         </xmp>
       </code>
 
@@ -130,7 +130,7 @@ npm install angular-resource --save
 
       <pre>
 <code class="language-javascript line-numbers">
-var pokemonApp = angular.module('PokemonApp', ['ngRoute', 'ngResource']);
+angular.module('PokemonApp', ['ngResource']);
 </code>
 </pre>
 
@@ -142,8 +142,8 @@ var pokemonApp = angular.module('PokemonApp', ['ngRoute', 'ngResource']);
 
       <pre>
 <code class="language-javascript line-numbers">
-  return $resource('https://api.backendless.com/v1/data/pokemon/:pokemonId/', {
-              pokemonId: '@pokemonId'
+  return $resource('/api/v1/users/:userId/', {
+              userId: '@userId'
           })
 </code>
 </pre>
