@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>AngularJS</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/prism-fix.css">
+    <link rel="stylesheet" href="css/netology.css">
+  </head>
+  <body class="shower list">
+
+    <header class="caption">
+      <h1>Продвинутые приемы работы с http-запросами, полезные модули от сообщества разработчиков и подготовка к Angular2</h1>
+
+      <p>Максим Сальников, ForgeRock</p>
+    </header>
+
+    <section class="slide" id="cover">
+      <h2>Продвинутые приемы работы с http-запросами, полезные модули от сообщества разработчиков и подготовка к Angular2</h2>
+
+      <p>
+        <img src="i/Maxim Salnikov - Norway.png" alt="" class="avatar">
+        Максим Сальников
+        <span class="position">ForgeRock</span>
+      </p>
+    </section>
+
+    <header class="slide" id="contents">
+      <h1>Модификация HTTP-заголовков</h1>
+      <h1>.component()</h1>
+      <h1>Restangular</h1>
+      <h1>UI Bootstrap</h1>
+      <h1>Angular Material</h1>
+    </header>
+
+    <header class="slide" id="http0">
+      <h2>Модификация HTTP-заголовков</h2>
+      <h1>Используется для авторизации</h1>
+    </header>
+
+    <section class="slide" id="http1">
+
+      <h2>Пример</h2>
+
+      <pre>
+<code class="language-javascript line-numbers">
+$httpProvider.defaults.headers.common = {
+  "application-id": "...",
+  "secret-key": "..."
+};
+</code>
+</pre>
+
+    </section>
+
+    <section class="slide" id="http2">
+
+      <h2>Помещается в секцию config()</h2>
+
+      <pre>
+<code class="language-javascript line-numbers">
+.config(['$httpProvider', function($httpProvider) {
+  ...
+}]);
+</code>
+</pre>
+
+    </section>
+
+    <header class="slide" id="comp0">
+      <h2>.component()</h2>
+      <h1>Компоненты в Angular 1</h1>
+    </header>
+
+    <header class="slide" id="rest1">
+      <h2>Что такое компонент</h2>
+      <ul>
+        <li>
+          элемент UI
+        </li>
+        <li>
+          может включать другие компоненты
+        </li>
+        <li>
+          максимально независимый от контекста использования
+        </li>
+      </ul>
+    </header>
+
+    <section class="slide" id="comp1">
+
+      <h2>Задача</h2>
+<pre>
+      <code class="language-html line-numbers">
+        <xmp>
+          <pokemon-list></pokemon-list>
+        </xmp>
+      </code></pre>
+
+    </section>
+
+    <section class="slide" id="comp2">
+
+      <h2>Пример</h2>
+
+<pre>
+      <code class="language-javascript line-numbers">
+pokemonApp.component('pokemonList', {
+    controller: function PokemonListCtrl() {
+        ...
+    },
+    templateUrl: './src/PokemonList/PokemonList.html'
+});
+      </code>
+    </pre>
+
+    </section>
+
+    <section class="slide" id="comp3">
+
+      <h2>Связывание данных</h2>
+
+<pre>
+      <code class="language-html line-numbers">
+        <xmp>
+<pokemon-list-item pokemon="singlePokemon">
+</pokemon-list-item>
+        </xmp>
+      </code>
+    </pre>
+
+    </section>
+
+    <section class="slide" id="comp4">
+
+      <h2>Связывание данных</h2>
+
+      <pre>
+
+      <code class="language-javascript line-numbers">
+  pokemonApp.component('pokemonListItem', {
+      bindings: {
+          pokemon: '<'
+      },
+      templateUrl: './src/PokemonListItem/PokemonListItem.html'
+  });
+      </code>
+
+    </pre>
+
+    </section>
+
+    <section class="slide" id="comp4">
+
+      <h2>Материалы</h2>
+
+      <p>
+      <a href="https://docs.angularjs.org/guide/component">Developer Guide / Components</a>
+      </p>
+      <p>
+      <a href="https://habrahabr.ru/post/277087/">Angular 1.5: Компоненты</a>
+      </p>
+
+    </section>
+
+
+    <header class="slide" id="ng0">
+      <h2>Restangular</h2>
+      <h1>https://github.com/mgonto/restangular</h1>
+    </header>
+
+    <section class="slide" id="ng1">
+
+      <h2>Подключение</h2>
+
+      <pre>
+<code class="language-javascript line-numbers">
+npm install restangular --save
+npm install lodash --save
+</code>
+</pre>
+
+    </section>
+
+    <header class="slide" id="ng2">
+      <h2>Подключение</h2>
+
+      <code class="language-html line-numbers">
+        <xmp>
+          <script src="./restangular.js"></script>
+          <script src="./lodash.js"></script>
+        </xmp>
+      </code>
+
+    </header>
+
+    <section class="slide" id="ng3">
+
+      <h2>Подключение</h2>
+
+      <pre>
+<code class="language-javascript line-numbers">
+angular.module('myModule', ['restangular']);
+</code>
+</pre>
+
+    </section>
+
+    <section class="slide" id="ng4">
+
+      <h2>Использование</h2>
+
+      <pre>
+<code class="language-javascript line-numbers">
+Restangular.one('pokemon', 123).get().then(function(response) {
+  $scope.pokemon = response
+});
+</code>
+</pre>
+
+    </section>
+
+    <section class="slide" id="ng5">
+
+      <h2>Встроенные функции</h2>
+
+      <pre>
+<code class="language-javascript line-numbers">
+one(route, id)
+all(route)
+...
+get([queryParams, headers])
+put([queryParams, headers])
+post(subElement, elementToPost, [queryParams, headers])
+remove([queryParams, headers])
+...
+</code>
+</pre>
+
+    </section>
+
+    <section class="slide" id="ng6">
+
+      <h2>Использование</h2>
+
+      <pre>
+<code class="language-javascript line-numbers">
+$scope.pokemon.put().then(function(successResult) {
+  ...
+});
+</code>
+</pre>
+
+    </section>
+
+    <section class="slide" id="ng7">
+
+      <h2>Конфигурация</h2>
+
+      <pre>
+<code class="language-javascript line-numbers">
+RestangularProvider.setBaseUrl('https://api.backendless.com/v1/data/');
+</code>
+</pre>
+
+    </section>
+
+    <header class="slide" id="ui0">
+      <h2>UI Bootstrap</h2>
+      <h1>https://angular-ui.github.io/bootstrap/</h1>
+    </header>
+
+    <section class="slide" id="ui1">
+
+      <h2>Подключение</h2>
+
+      <pre>
+<code class="language-javascript line-numbers">
+npm install angular-ui-bootstrap --save
+</code>
+</pre>
+
+    </section>
+
+    <header class="slide" id="ui2">
+      <h2>Подключение</h2>
+
+      <code class="language-html line-numbers">
+        <xmp>
+          <script src="./ui-bootstrap.js"></script>
+          <script src="./ui-bootstrap-tpls.js"></script>
+        </xmp>
+      </code>
+
+    </header>
+
+    <section class="slide" id="ui3">
+
+      <h2>Подключение</h2>
+
+      <pre>
+<code class="language-javascript line-numbers">
+angular.module('myModule', ['ui.bootstrap']);
+</code>
+</pre>
+
+    </section>
+
+    <section class="slide" id="ui4">
+
+      <h2>Использование</h2>
+
+      <pre>
+<code class="language-html line-numbers">
+  <xmp>
+<uib-tabset active="activeTab">
+    <uib-tab heading="Инфо">
+        ...
+    </uib-tab>
+    <uib-tab heading="Операции" disable="disableControlTab">
+        ...
+    </uib-tab>
+</uib-tabset>
+</xmp>
+</code>
+</pre>
+
+    </section>
+
+    <section class="slide" id="ui5">
+
+      <h2>Использование</h2>
+
+      <pre>
+<code class="language-javascript line-numbers">
+$scope.activeTab = 1;
+$scope.disableControlTab = true;
+</code>
+</pre>
+
+    </section>
+
+
+
+    <header class="slide" id="material0">
+      <h2>Angular Material</h2>
+      <h1>https://material.angularjs.org</h1>
+    </header>
+
+    <section class="slide" id="material1">
+
+      <h2>Подключение</h2>
+
+      <pre>
+<code class="language-javascript line-numbers">
+npm install angular-aria --save
+npm install angular-animate --save
+npm install angular-material --save
+</code>
+</pre>
+
+    </section>
+
+    <header class="slide" id="material2">
+      <h2>Подключение</h2>
+
+      <code class="language-html line-numbers">
+        <xmp>
+          <script src="./angular-animate.js"></script>
+          <script src="./angular-aria.js"></script>
+          <script src="./angular-material.js"></script>
+        </xmp>
+      </code>
+
+    </header>
+
+    <section class="slide" id="material3">
+
+      <h2>Подключение</h2>
+
+      <pre>
+<code class="language-javascript line-numbers">
+angular.module('myModule',['ngMaterial']);
+</code>
+</pre>
+
+    </section>
+
+    <section class="slide" id="material4">
+
+      <h2>Использование</h2>
+
+      <pre>
+<code class="language-html line-numbers">
+  <xmp>
+<md-input-container class="md-block" flex-gt-xs>
+  <label>Имя</label>
+  <input ng-model="newPokemon.name" required>
+</md-input-container>
+...
+<md-button class="md-raised md-primary">Добавить</md-button>
+</xmp>
+</code>
+</pre>
+
+    </section>
+
+    <section class="slide" id="material5">
+
+      <h2>Использование</h2>
+
+      <pre>
+<code class="language-javascript line-numbers">
+$mdToast.show(
+    $mdToast.simple()
+    .textContent('Message text')
+    .position('bottom right')
+    .hideDelay(3000)
+);
+</code>
+</pre>
+
+    </section>
+
+
+    <section class="slide">
+      <h2>Как предоставить код домашней работы на проверку</h2>
+
+      <p>
+        Способы предоставить домашнее задание в порядке приоритета:
+      </p>
+      <ol>
+        <li>Исходный код на
+          <a href="https://bitbucket.org/">BitBucket</a>
+          или
+          <a href="https://github.com/">GitHub</a>
+        </li>
+        <li>Код в
+          <a href="http://codepen.io/">CodePen</a>
+          или
+          <a href="https://jsfiddle.net/">JSFiddle</a>
+        </li>
+      </ol>
+    </section>
+
+    <section class="slide last">
+      <p class="thanx">Задавайте вопросы!</p>
+      <address>Максим Сальников</address>
+      <ul class="contacts">
+        <li>
+          <a href="mailto:salnikov@gmail.com">
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>salnikov@gmail.com</a>
+        </li>
+        <li>
+          <a href="https://twitter.com/webmaxru">
+            <i class="fa fa-twitter" aria-hidden="true"></i>webmaxru</a>
+        </li>
+      </ul>
+    </section>
+
+    <div class="progress"></div>
+    <script src="shower/shower.min.js"></script>
+    <script src="js/prism.js?v=2"></script>
+    <script src="https://use.fontawesome.com/30b5a52164.js"></script>
+  </body>
+</html>
