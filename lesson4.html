@@ -181,6 +181,42 @@
 
     </section>
 
+    <section class="slide" id="rest11">
+
+      <h2>Версионность</h2>
+
+      Обязательно указывайте номер версии, даже если не планируете изменение интерфейса — все может быстро измениться.<br/>
+
+      Версию можно указать в строке адреса:<br/>
+
+      /api/v2/users/ae43bc<br/>
+
+      или в параметрах запроса:<br/>
+
+      /api/users/ae43bc?v=2
+    </section>
+
+    <section class="slide" id="rest12">
+
+      <h2>Фильтры и постраничность</h2>
+
+      Если в Вашем GET запросе необходимо использовать различные фильтры — поместите их за знаком вопроса (в параметрах URL):<br/>
+
+      GET /api/users?limit=10&offset=4&age=30&height=160&weight=120<br/>
+
+      Любая коллекция, какой бы маленькой, по Вашему мнению, она не была должна отдаваться постранично. Определитесь с форматом выдачи коллекции, например, Content-Type: application/json {«data»:{}, «paging»: {«limit»: 50, «offset»: 0, «total»: 150}}
+
+
+    </section>
+
+    <section class="slide" id="rest13">
+
+      <h2>Медиа типы</h2>
+
+      Accept и Content-Type HTTP заголовков могут быть использованы для описания содержимого, которое будет отправлено или запрошено HTTP запросом. Клиент может установить Accept в application/json, если он запрашивает ответ в JSON. И наоборот, когда отправляются данные, установленный Content-Type в application/xml говорит клиенту, что данные были отправлены в XML форме.
+
+    </section>
+
 
 
     <header class="slide" id="ng0">
@@ -269,6 +305,21 @@ angular.module('PokemonApp', ['ngResource']);
 </pre>
 
     </section>
+
+    <section class="slide" id="homework">
+      <h2>Практика:</h2>
+
+      <p>
+              <p>https://github.com/webmaxru/netology-angular-pokemons/</p>
+      </p>
+
+      <p>Ветка resource ( https://github.com/webmaxru/netology-angular-pokemons/tree/resource )</p>
+
+      <p>Использовать $resource для вывода списка ягод (можно обращаться к внешнему Pokemon API или создать таблицу berries в backendless.com)</p>
+
+
+    </section>
+
 
       <section class="slide">
         <h2>Как предоставить код домашней работы на проверку</h2>
